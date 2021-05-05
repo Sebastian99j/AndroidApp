@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">IMGW - PIB</string>
+    <string name="dateFormat">dd.mm.rrrr</string>
+    <string name="procentFormat">x%</string>
+    <string name="approve">Zatwierdź</string>
+    <string name="name">Login</string>
+    <string name="load">Wczytaj</string>
+    <string name="logo">LOGO-IMGW</string>
+    <string name="login">Logowanie do aplikacji</string>
+    <string name="register">Rejestracja do aplikacji</string>
+    <string name="loginButton">Zaloguj</string>
+    <string name="registerButton">Zarejestruj</string>
+    <string name="exitButton">Wyjdź</string>
+    <string name="emailText">E-mail:</string>
+    <string name="passText">Hasło:</string>
+    <string name="regulations">Zgadzam się na regulamin</string>
+    <string name="zabiegiAgrotechniczne">Zabiegi Agrotechniczne</string>
+    <string name="lokalizacjaUpraw">Lokalizacja upraw</string>
+    <string name="dziennikZdarzen">Dziennik Zdarzeń</string>
+    <string name="getFileSHPGJ">PLIK SHP/GEOJSON</string>
+    <string name="getFile">Wczytaj plik</string>
+    <string name="send">Wyślij</string>
+    <string name="next">Dalej</string>
+    <string name="back">Cofnij</string>
+    <string name="data">Data</string>
+    <string name="czynnosc">Czynność</string>
+    <string name="dane">Dane</string>
+    <string name="actionTable2">Zdarzenie</string>
+    <string name="lossTable2">Strata</string>
+    <string name="hello">Jesteś zalogowany jako:</string>
+    <string name="add">Dodaj</string>
+    <string name="backing">Wróć</string>
+    <string name="delete">Usuń</string>
+    <string name="addData">Wprowadź dane</string>
+    <string name="mapButton">Zobacz mapę</string>
+    <string name="warunkiBiezace">Warunki bieżące</string>
+    <string name="plantTable">Roślina</string>
+    <string name="termTable">Termin siewu</string>
+    <string name="conditionTable">Kondycja uprawy</string>
+
+    <string-array name="action">
+        <item></item>
+        <item>Nawóz (organiczny)</item>
+        <item>Nawóz (mineralny)</item>
+        <item>Nawodnienie</item>
+        <item>Siew</item>
+        <item>Zbiór</item>
+    </string-array>
+    <string-array name="plant">
+        <item></item>
+        <item>Kukurydza</item>
+        <item>Pszenica</item>
+        <item>Żyto</item>
+        <item>Rzepak</item>
+    </string-array>
+    <string-array name="condition">
+        <item></item>
+        <item>Bardzo dobra</item>
+        <item>Dobra</item>
+        <item>Zła</item>
+    </string-array>
+    <string-array name="bioaction">
+        <item></item>
+        <item>Ulewa</item>
+        <item>Deszcz</item>
+        <item>Susza</item>
+        <item>Przymrozek</item>
+        <item>Agrofagi</item>
+    </string-array>
+</resources>
