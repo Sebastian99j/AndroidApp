@@ -36,7 +36,7 @@ class SixthActivity : AppCompatActivity(), Json {
     }
 
     private fun getAdapter(): ArrayAdapter<CharSequence> {
-        var adapter = ArrayAdapter.createFromResource(this, R.array.bioaction, android.R.layout.simple_spinner_item)
+        val adapter = ArrayAdapter.createFromResource(this, R.array.bioaction, android.R.layout.simple_spinner_item)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         return adapter
     }
@@ -89,6 +89,9 @@ class SixthActivity : AppCompatActivity(), Json {
         OkHttpSend.sendJson(jsonFromFile3, "getjson/3", id.toString(), token.toString())
 
         Toast.makeText(applicationContext, "Wysłano", Toast.LENGTH_SHORT).show()
+
+        val intent = Intent(applicationContext, DetailsActivity::class.java)
+        startActivity(intent)
     }
 
     fun backPage(view: View) {
