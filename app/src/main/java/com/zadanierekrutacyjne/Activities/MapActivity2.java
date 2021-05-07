@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.widget.Toast;
+
 import com.zadanierekrutacyjne.R;
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
@@ -15,6 +17,7 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.MapEventsOverlay;
+import org.osmdroid.views.overlay.Polygon;
 import org.osmdroid.views.overlay.Polyline;
 
 public class MapActivity2 extends AppCompatActivity {
@@ -43,6 +46,8 @@ public class MapActivity2 extends AppCompatActivity {
         Polyline polyline = new Polyline();
         polyline.setColor(Color.RED);
 
+        Polygon polygon = new Polygon();
+
         mMapView.getOverlays().add(polyline);
 
         mMapView.getOverlays().add(new MapEventsOverlay(new MapEventsReceiver() {
@@ -50,12 +55,14 @@ public class MapActivity2 extends AppCompatActivity {
             public boolean singleTapConfirmedHelper(GeoPoint p) {
                 polyline.addPoint(p);
                 mMapView.getOverlays().add(polyline);
+                System.out.println("singla tap");
                 return true;
             }
             @Override
             public boolean longPressHelper(GeoPoint p) {
-                polyline.addPoint(p);
-                mMapView.getOverlays().add(polyline);
+                polygon.addPoint(p);
+                mMapView.getOverlays().add(polygon);
+                System.out.println("long press");
                 return false;
             }
         }));

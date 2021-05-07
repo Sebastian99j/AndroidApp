@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.zadanierekrutacyjne.OkHttp.OkHttpSend
@@ -26,7 +27,13 @@ class SecondActivity : AppCompatActivity() {
 
     fun login(view: View) {
         if (checkBoxRegulations.isChecked){
-            registerUser(addEmailField.text.toString(), addPasswordField.text.toString())
+            if (isLongerThanSix(addPasswordField.text.toString())){
+                registerUser(addEmailField.text.toString(), addPasswordField.text.toString())
+            }
+            else {
+                tipForPass.visibility = EditText.VISIBLE
+                tipForPass.text = "Hasło musi byc dluższe niż 6!"
+            }
         }
         else {
             Toast.makeText(applicationContext, "Należy potwierdzić regulamin!", Toast.LENGTH_SHORT).show()
@@ -36,6 +43,10 @@ class SecondActivity : AppCompatActivity() {
     fun exit(view: View) {
         val intent = Intent(applicationContext, MainActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun isLongerThanSix(pass: String): Boolean {
+        return pass.length > 6
     }
 
     private fun registerUser(addedEmail: String?, addedPassword: String?) {

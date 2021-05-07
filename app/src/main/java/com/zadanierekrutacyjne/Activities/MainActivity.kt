@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
 
-                Toast.makeText(applicationContext, "Błąd serwera!", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(applicationContext, "Błąd serwera!", Toast.LENGTH_SHORT).show()
 
                 Log.e("MainActivity", "onFailure: code: " + e.message)
             }
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                     } else if (response.code == 404) {
 //                        toast.visibility = TextView.VISIBLE
 //                        toast.text = "Nieprawidłowe dane!"
-                        Toast.makeText(applicationContext, "Niepawidłowe dane!", Toast.LENGTH_SHORT).show()
+//                        Toast.makeText(applicationContext, "Niepawidłowe dane!", Toast.LENGTH_SHORT).show()
                     }
                 }
                 Log.e("MainActivity", "onResponse: " + response.code)

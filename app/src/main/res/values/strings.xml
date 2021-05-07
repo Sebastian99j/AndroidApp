@@ -67,4 +67,22 @@
         <item>Przymrozek</item>
         <item>Agrofagi</item>
     </string-array>
+    <string-array name="voivodship">
+        <item>DOLNOŚLĄSKIE</item>
+        <item>KUJAWSKO-POMORSKIE</item>
+        <item>LUBELSKIE</item>
+        <item>LUBUSKIE</item>
+        <item>ŁÓDZKIE</item>
+        <item>MAŁOPOLSKIE</item>
+        <item>MAZOWIECKIE</item>
+        <item>OPOLSKIE</item>
+        <item>PODKARPACKIE</item>
+        <item>PODLASKIE</item>
+        <item>POMORSKIE</item>
+        <item>ŚLASKIE</item>
+        <item>ŚWIĘTOKRZYSKIE</item>
+        <item>WARMIŃSKO-MAZURSKIE</item>
+        <item>WIELKOPOLSKIE</item>
+        <item>ZACHODNIOPOMORSKIE</item>
+    </string-array>
 </resources>
