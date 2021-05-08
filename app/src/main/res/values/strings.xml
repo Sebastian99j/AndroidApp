@@ -20,6 +20,7 @@
     <string name="getFileSHPGJ">PLIK SHP/GEOJSON</string>
     <string name="getFile">Wczytaj plik</string>
     <string name="send">Wyślij</string>
+    <string name="save">Zapisz</string>
     <string name="next">Dalej</string>
     <string name="back">Cofnij</string>
     <string name="data">Data</string>

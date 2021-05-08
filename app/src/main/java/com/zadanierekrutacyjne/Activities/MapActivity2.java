@@ -3,9 +3,12 @@ package com.zadanierekrutacyjne.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -16,12 +19,18 @@ import org.osmdroid.events.MapEventsReceiver;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.drawing.MapSnapshot;
 import org.osmdroid.views.overlay.MapEventsOverlay;
 import org.osmdroid.views.overlay.Polygon;
 import org.osmdroid.views.overlay.Polyline;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
 public class MapActivity2 extends AppCompatActivity {
     MapView mMapView = null;
+    Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +91,41 @@ public class MapActivity2 extends AppCompatActivity {
 
     public void back(View view) {
         Intent intent = new Intent(this, DetailsActivity.class);
+        startActivity(intent);
+    }
+
+    public void save(View view) {
+        MapSnapshot.MapSnapshotable mapSnapshotable = MapSnapshot::run;
+        MapSnapshot mapSnapshot = new MapSnapshot(mapSnapshotable, MapSnapshot.INCLUDE_FLAG_UPTODATE, mMapView);
+        mapSnapshot.run();
+        mapSnapshot.refreshASAP();
+        System.out.println(mapSnapshot.getStatus());
+        bitmap = mapSnapshot.getBitmap();
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        byte[] imageInByte = byteArrayOutputStream.toByteArray();
+
+        String encodedImage = Base64.encodeToString(imageInByte, Base64.DEFAULT);
+        writeToFile(encodedImage, this);
+
+        Intent intent = new Intent(this, ImageActivity.class);
+        startActivity(intent);
+    }
+
+    private void writeToFile(String data, Context context) {
+        try {
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("bitmap.txt", Context.MODE_PRIVATE));
+            outputStreamWriter.write(data);
+            outputStreamWriter.close();
+        }
+        catch (IOException e) {
+            Log.e("Exception", "File write failed: " + e.toString());
+        }
+    }
+
+    public void load(View view) {
+        Intent intent = new Intent(this, ImageActivity.class);
         startActivity(intent);
     }
 }
